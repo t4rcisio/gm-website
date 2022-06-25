@@ -1,9 +1,9 @@
 import { Router } from "express";
+import ClientController from "../controller/client.js";
 
 const client = Router();
+const controller = new ClientController();
 
-client.get("/novo", (request, response) => {
-  response.status(200).send("Novo");
-});
+client.post("/new", controller.NewUser.bind(controller));
 
 export default client;
